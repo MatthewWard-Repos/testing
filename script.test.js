@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from "./script";
+import { capitalize, reverseString, calculator, caesarCipher } from "./script";
 
 test("string returns with capitalised first character", () => {
   expect(capitalize("banana")).toBe("Banana");
@@ -30,4 +30,18 @@ test("calculate throws error.", () => {
   expect(() => calculator.add("test", 5)).toThrow(
     "Both parameters must be numbers.",
   );
+  expect(() => calculator.subtract("test", 5)).toThrow(
+    "Both parameters must be numbers.",
+  );
+  expect(() => calculator.divide("test", 5)).toThrow(
+    "Both parameters must be numbers.",
+  );
+  expect(() => calculator.multiply("test", 5)).toThrow(
+    "Both parameters must be numbers.",
+  );
+});
+
+test("caesarCipher shifts by correct factor", () => {
+  expect(caesarCipher("abc", 1)).toBe("bcd");
+  expect(caesarCipher("abc", 2)).toBe("cde");
 });

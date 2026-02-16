@@ -1,6 +1,4 @@
-import { type } from "node:os";
-
-export { capitalize, reverseString, calculator };
+export { capitalize, reverseString, calculator, caesarCipher };
 
 function capitalize(string) {
   if (typeof string === "string") {
@@ -41,3 +39,13 @@ const calculator = {
     return a * b;
   },
 };
+function caesarCipher(string, factor) {
+  return string
+    .split("")
+    .map((letter) => {
+      let charcode = letter.charAt();
+      return String.fromCharCode(letter.charCodeAt(charcode) + factor);
+    })
+    .join("");
+}
+// window.caesarCipher = caesarCipher;
