@@ -44,4 +44,5 @@ test("calculate throws error.", () => {
 test("caesarCipher shifts by correct factor", () => {
   expect(caesarCipher("abc", 1)).toBe("bcd");
   expect(caesarCipher("abc", 2)).toBe("cde");
+  expect(caesarCipher("abc", -1)).toBe("zab");
 });
