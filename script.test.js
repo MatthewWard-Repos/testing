@@ -64,4 +64,10 @@ test("analyzeArray returns object with array's average, min, max and length", ()
     max: 8,
     length: 6,
   });
+  expect(analyzeArray([2, 5, 7, 6, 8, 9, 12])).toEqual({
+    average: 7,
+    min: 2,
+    max: 12,
+    length: 7,
+  });
 });

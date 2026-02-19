@@ -62,20 +62,22 @@ function caesarCipher(string, factor) {
 // window.caesarCipher = caesarCipher;
 
 function analyzeArray(arr) {
-  return {
-    average: 4,
-    min: 1,
-    max: 8,
-    length: 6,
-  };
+  let obj = {};
+  let initalValue = 0;
+  obj.average = arr.reduce((acc, cur) => acc + cur, initalValue) / arr.length;
+  obj.min = arr.reduce((acc, cur) => (cur < acc ? (acc = cur) : acc), arr[0]);
+  obj.max = arr.reduce((acc, cur) => (cur > acc ? (acc = cur) : acc), arr[0]);
+  obj.length = arr.length;
+  return obj;
 }
+// window.analyzeArray = analyzeArray;
 
-const object = analyzeArray([1, 8, 3, 4, 2, 6]);
+// const object = analyzeArray([1, 8, 3, 4, 2, 6]);
 
-object ==
-  {
-    average: 4,
-    min: 1,
-    max: 8,
-    length: 6,
-  };
+// object ==
+//   {
+//     average: 4,
+//     min: 1,
+//     max: 8,
+//     length: 6,
+//   };
