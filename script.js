@@ -40,20 +40,22 @@ const calculator = {
   },
 };
 function caesarCipher(string, factor) {
-  function checkLoop(num, factor) {
-    if (num + factor < 65) {
-      return 91 + factor;
-    } else if (num + factor < 97) {
-      return 123 + factor;
-    } else {
-      return num + factor;
-    }
-  }
   return string
     .split("")
     .map((letter) => {
-      let charcode = letter.charCodeAt();
-      return String.fromCharCode(checkLoop(charcode, factor));
+      let charcode = letter.charCodeAt(0);
+
+      if (charcode >= 65 && charcode <= 90) {
+        return String.fromCharCode(
+          ((((charcode - 65 + factor) % 26) + 26) % 26) + 65,
+        );
+      }
+      if (charcode >= 97 && charcode <= 122) {
+        return String.fromCharCode(
+          ((((charcode - 97 + factor) % 26) + 26) % 26) + 97,
+        );
+      }
+      return letter;
     })
     .join("");
 }
